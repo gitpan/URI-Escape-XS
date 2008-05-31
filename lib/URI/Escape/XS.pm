@@ -1,11 +1,11 @@
 package URI::Escape::XS;
 #
-# $Id: XS.pm,v 0.1 2007/04/27 17:17:46 dankogai Exp dankogai $
+# $Id: XS.pm,v 0.2 2008/05/31 00:00:32 dankogai Exp $
 #
 use 5.008001;
 use warnings;
 use strict;
-our $VERSION = '0.01';
+our $VERSION = sprintf "%d.%02d", q$Revision: 0.2 $ =~ /(\d+)/g;
 
 use base qw(Exporter);
 our @EXPORT    = qw(encodeURIComponent decodeURIComponent);
@@ -56,7 +56,7 @@ URI::Escape::XS - Drop-In replacement for URI::Escape
 
 =head1 VERSION
 
-$Id: XS.pm,v 0.1 2007/04/27 17:17:46 dankogai Exp dankogai $
+$Id: XS.pm,v 0.2 2008/05/31 00:00:32 dankogai Exp $
 
 =cut
 
@@ -65,7 +65,7 @@ $Id: XS.pm,v 0.1 2007/04/27 17:17:46 dankogai Exp dankogai $
     # use it instead of URI::Escape
     use URI::Escape::XS qw/uri_escape uri_unescape/;
     $safe = uri_escape("10% is enough\n");
-    $verysafe = uri_escape("foo", "\0-377);
+    $verysafe = uri_escape("foo", "\0-\377");
     $str  = uri_unescape($safe);
 
     # or use encodeURIComponent and decodeURIComponent
@@ -112,7 +112,7 @@ This function UNCONDITIONALLY returns the decoded string with utf8 flag off.  To
 
   decode_utf8(decodeURIComponent($uri));
 
-This is the correct behavior because you can't tell if the decoded
+This is the correct behavior because you cannot tell if the decoded
 string actually contains UTF-8 decoded string, like ISO-8859-1 and
 Shift_JIS.
 
@@ -148,9 +148,9 @@ So if you want to decode it to perl utf8, You have to explicitly
 decode via L<Encode>.  Remember.  URIs have always been a byte
 sequence, not UTF-8 characters.
 
-If %uHHHH sequence became standard, you could've safely told if a
+If the %uHHHH sequence became standard, you could have safely told if a
 given URI is in Unicode.  But more fortunately than unfortunately, the
-RFC proposal was rejected so you can't tell which encoding is used
+RFC proposal was rejected so you cannot tell which encoding is used
 just by looking at the URI.
 
 L<http://en.wikipedia.org/wiki/Percent-encoding#Non-standard_implementations>
@@ -247,7 +247,7 @@ Koichi Taniguchi for L<URI::Escape::JavaScript>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2007 Dan Kogai, all rights reserved.
+Copyright 2007-2008 Dan Kogai, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
