@@ -1,14 +1,29 @@
 #
-# $Id: Changes,v 0.4 2009/01/16 08:26:52 dankogai Exp dankogai $
+# $Id: Changes,v 0.5 2009/03/24 14:24:09 dankogai Exp dankogai $
 #
 # Revision history for Revision history for URI-Escape-XS
 #
-$Revision: 0.4 $ $Date: 2009/01/16 08:26:52 $
+$Revision: 0.5 $ $Date: 2009/03/24 14:24:09 $
+! lib/URI/Escape/XS.pm t/04-IDN.t
+  Now you can also use Net::LibIDN instead of Net::IDN::Encode
+  http://rt.cpan.org/Public/Bug/Display.html?id=44084
+
+0.04 2009/01/16 08:26:52
+!  lib/URI/Escape/XS.pm
+!  t/04-IDN.t
+   drry:   * fixed POD and test. * et cetera.
+   http://coderepos.org/share/changeset/28708
+! t/t/01-compat.t
+  Retouched so it is now locale-free
+  http://rt.cpan.org/Public/Bug/Display.html?41134
+  http://rt.cpan.org/Public/Bug/Display.html?42702
+
+0.04 2009/01/16 08:26:52
 ! XS.pm README
 + t/04-idn.t
   added: decodeURICompornentIDN() and encodeURICompornentIDN()
 
-$Revision: 0.4 $ $Date: 2009/01/16 08:26:52 $
+0.03 2009/01/16 08:26:52
 ! XS.pm
   Arguments are now unconditionally stringified
   http://rt.cpan.org/Public/Bug/Display.html?39344
