@@ -4,7 +4,7 @@
       "Dan Kogai <dankogai+cpan@gmail.com>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "ExtUtils::MakeMaker version 6.86, CPAN::Meta::Converter version 2.133380",
    "license" : [
       "perl_5"
    ],
@@ -37,5 +37,12 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.10"
+   "resources" : {
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/dankogai/p5-uri-escape-xs.git",
+         "web" : "https://github.com/dankogai/p5-uri-escape-xs"
+      }
+   },
+   "version" : "0.11"
 }
