@@ -1,5 +1,5 @@
 /*
- * $Id: XS.xs,v 0.7 2013/02/25 17:24:25 dankogai Exp $
+ * $Id: XS.xs,v 0.8 2014/04/16 10:49:36 dankogai Exp dankogai $
  */
 
 #include "EXTERN.h"
@@ -44,10 +44,11 @@ SV *encode_uri_component(SV *sstr){
     int i;
     if (sstr == &PL_sv_undef) return newSV(0);
     str    = sv_2mortal(newSVsv(sstr)); /* make a copy to make func($1) work */
-    slen   = SvPOK(str) ? SvCUR(str) : 0;
+    if (!SvPOK(str)) sv_catpv(str, "");
+    slen   = SvCUR(str);
     dlen   = 0;
     result = newSV(slen * 3 + 1); /* at most 3 times */
-
+    
     SvPOK_on(result);
     src   = (U8 *)SvPV_nolen(str);
     dst   = (U8 *)SvPV_nolen(result);
@@ -75,7 +76,8 @@ SV *decode_uri_component(SV *suri){
     if (suri == &PL_sv_undef) return newSV(0);
     /* if (!SvPOK(suri)) return newSV(0); */
     uri  = sv_2mortal(newSVsv(suri)); /* make a copy to make func($1) work */
-    slen = SvPOK(uri) ? SvCUR(uri) : 0;
+    if (!SvPOK(uri)) sv_catpv(uri, "");
+    slen = SvCUR(uri);
     dlen = 0;
     result = newSV(slen + 1);
    

@@ -3,22 +3,22 @@ abstract: 'Drop-In replacement for URI::Escape'
 author:
   - 'Dan Kogai <dankogai+cpan@gmail.com>'
 build_requires:
-  ExtUtils::MakeMaker: 0
+  ExtUtils::MakeMaker: '0'
 configure_requires:
-  ExtUtils::MakeMaker: 0
+  ExtUtils::MakeMaker: '0'
 dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.86, CPAN::Meta::Converter version 2.133380'
+generated_by: 'ExtUtils::MakeMaker version 6.94, CPAN::Meta::Converter version 2.140640'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: URI-Escape-XS
 no_index:
   directory:
     - t
     - inc
 requires:
-  Test::More: 0
+  Test::More: '0'
 resources:
   repository: https://github.com/dankogai/p5-uri-escape-xs.git
-version: 0.11
+version: '0.12'
